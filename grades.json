@@ -1,0 +1,107 @@
+{
+    "id": 3222293,
+    "id_externo": null,
+    "nome": "DR PEANUT",
+    "nome_visivel": "",
+    "resource_uri": "/api/v1/grades/3222293",
+    "variacoes": [
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403635,
+            "id_externo": null,
+            "nome": "AVELA",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403635"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 10265131,
+            "id_externo": null,
+            "nome": "BOMBOM ITALIANO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/10265131"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9450268,
+            "id_externo": null,
+            "nome": "BROWNIE",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9450268"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403647,
+            "id_externo": null,
+            "nome": "COOKIES",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403647"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403648,
+            "id_externo": null,
+            "nome": "LEITE EM PO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403648"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403649,
+            "id_externo": null,
+            "nome": "PAÇOCA",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403649"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403637,
+            "id_externo": null,
+            "nome": "BRIGADEIRO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403637"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403636,
+            "id_externo": null,
+            "nome": "BEIJINHO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403636"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403640,
+            "id_externo": null,
+            "nome": "BUENISSIMO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403640"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403638,
+            "id_externo": null,
+            "nome": "BRIGADEIRO DE COLHER",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403638"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403643,
+            "id_externo": null,
+            "nome": "CHOCOCO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403643"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403644,
+            "id_externo": null,
+            "nome": "CHOCOCO BRANCO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403644"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403645,
+            "id_externo": null,
+            "nome": "CHOCOLATE BRANCO",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403645"
+        },
+        {
+            "grade": "/api/v1/grades/3222293",
+            "id": 9403646,
+            "id_externo": null,
+            "nome": "CHOCOTINE",
+            "resource_uri": "/api/v1/grade/3222293/variacao/9403646"
+        }
+    ]
+}
