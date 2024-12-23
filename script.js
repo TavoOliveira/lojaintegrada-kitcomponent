@@ -1,6 +1,8 @@
 const BASE_URL = "https://cwbnutrishop.oulrum.workers.dev/";
 
 const sku = document.querySelector("div.codigo-produto span[itemprop='sku']").textContent;
+const attributesContainer = document.querySelector(".atributos");
+const attrComboboxes = Array.from(attributesContainer?.querySelectorAll(".wrapper-dropdown") || ['']);
 
 const item = {};
 
@@ -56,7 +58,9 @@ async function getVariations(grades, children) {
 }
 
 async function getChoices() {
-    const data = await getFetch(`/dados.json`);
+    const items = [];
+
+    const data = await getFetch(`${BASE_URL}api/product?sku=${sku}`);
 
     const itemData = data['objects'][0];
 
@@ -66,15 +70,22 @@ async function getChoices() {
     item.active = itemData.ativo;
     item.variations = await getVariations(itemData.grades, itemData.filhos);
 
+    for (let i = 0; i < attrComboboxes.length; i++) {
+        items.push(item);
+    }
+
     const kititem = document.createElement('template');
     kititem.id = '__KITDATA__';
-    kititem.innerHTML = JSON.stringify([item]);
+    kititem.innerHTML = JSON.stringify(items);
     document.head.appendChild(kititem);
 
     const itemChoices = document.createElement('kit-choices');
-    document.body.appendChild(itemChoices);
+    attributesContainer.appendChild(itemChoices);
 }
 
 addEventListener('load', () => {
-    getChoices();
+    if (attributesContainer) {
+        attributesContainer.innerHTML = '';     
+        getChoices();
+    }
 });
