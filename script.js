@@ -107,7 +107,7 @@ function validateValues() {
     });
 }
 
-addEventListener('load', async () => {
+async function startKitComponent() {
     if (attributesContainer && sku.includes('KIT')) {
         attributesContainer.innerHTML = '';
 
@@ -119,4 +119,6 @@ addEventListener('load', async () => {
     
         kitChoices.addEventListener('change', validateValues);
     }
-});
+}
+
+await startKitComponent();
