@@ -3,8 +3,8 @@ const BASE_URL = "https://cwbnutrishop.oulrum.workers.dev/";
 const sku = document.querySelector("div.codigo-produto span[itemprop='sku']").textContent;
 const skuReference = document.querySelector("#descricao [ref]").textContent;
 const attributesContainer = document.querySelector(".atributos");
-const attrComboboxes = attributesContainer?.querySelectorAll(".wrapper-dropdown").length > 0 ? attributesContainer?.querySelectorAll(".wrapper-dropdown") : [''];
-const btnBuy = document.querySelector(".botao-comprar");
+const attrComboboxes = attributesContainer?.querySelectorAll(".wrapper-dropdown").length > 0 ? attributesContainer?.querySelectorAll(".wrapper-dropdown") : ['', '', ''];
+const btnsBuy = document.querySelectorAll(".botao-comprar");
 let kitChoices;
 
 const item = {};
@@ -91,31 +91,32 @@ async function getChoices() {
     attributesContainer.appendChild(kitChoices);
 }
 
-function arrayToUrlParams(array) {
+function arrayToUrlParams(array, quantity = 1) {
     return array.map(item => {
-        return `${item}=1`;
+        return `${item}=${quantity}`;
     }).join('&');
 }
 
 function validateValues() {
-    console.log(kitChoices.itemsSelected);
+    const inputQuantity = document.querySelector("input[name='qtde-carrinho'");
 
     if (kitChoices.itemsSelected.length != attrComboboxes.length) return;
 
-    btnBuy.href = `https://www.cwbnutrishop.com/carrinho/produto/adicionar?${arrayToUrlParams(kitChoices.itemsSelected)}`;
+    btnsBuy.forEach(btn => {
+        btn.href = `https://www.cwbnutrishop.com/carrinho/produto/adicionar?${arrayToUrlParams(kitChoices.itemsSelected, inputQuantity.value)}`;
+    });
 }
 
 addEventListener('load', async () => {
     if (attributesContainer && sku.includes('KIT')) {
         attributesContainer.innerHTML = '';
 
-
-        getChoices();
-    }
-
-    btnBuy.href = 'jabascript:void(0)';
+        btnsBuy.forEach(btn => {
+            btn.href = 'javascript:void(0)';
+        });
+        
+        await getChoices();
     
-    await getChoices();
-
-    kitChoices.addEventListener('change', validateValues);
+        kitChoices.addEventListener('change', validateValues);
+    }
 });
