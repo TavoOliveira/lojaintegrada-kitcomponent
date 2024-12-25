@@ -1,8 +1,11 @@
 const BASE_URL = "https://cwbnutrishop.oulrum.workers.dev/";
 
 const sku = document.querySelector("div.codigo-produto span[itemprop='sku']").textContent;
+const skuReference = document.querySelector("#descricao [ref]").textContent;
 const attributesContainer = document.querySelector(".atributos");
-const attrComboboxes = Array.from(attributesContainer?.querySelectorAll(".wrapper-dropdown") || ['']);
+const attrComboboxes = attributesContainer?.querySelectorAll(".wrapper-dropdown").length > 0 ? attributesContainer?.querySelectorAll(".wrapper-dropdown") : [''];
+const btnBuy = document.querySelector(".botao-comprar");
+let kitChoices;
 
 const item = {};
 
@@ -26,7 +29,7 @@ async function getVariations(grades, children) {
     const gradeId = grades[0].split('/')[4];
     item.grades.push(gradeId);
 
-    const gradeData = await getFetch(`${BASE_URL}api/grades?id=${gradeId}`);   
+    const gradeData = await getFetch(`${BASE_URL}api/grades?id=${gradeId}`);
 
     for (let child of children) {
         const childId = child.split('/')[4];
@@ -59,16 +62,21 @@ async function getVariations(grades, children) {
 
 async function getChoices() {
     const items = [];
+    const data = await getFetch(`${BASE_URL}api/product?sku=${skuReference}`);
 
-    const data = await getFetch(`${BASE_URL}api/product?sku=${sku}`);
+    if (!data.objects || data.objects.length === 0) {
+        console.error('Produto não encontrado.');
+        return;
+    }
 
-    const itemData = data['objects'][0];
-
-    item.name = itemData.nome;
-    item.url = itemData.url;
-    item.sku = itemData.sku;
-    item.active = itemData.ativo;
-    item.variations = await getVariations(itemData.grades, itemData.filhos);
+    const itemData = data.objects[0];
+    const item = {
+        name: itemData.nome,
+        url: itemData.url,
+        sku: itemData.sku,
+        active: itemData.ativo,
+        variations: await getVariations(itemData.grades || [], itemData.filhos || []),
+    };
 
     for (let i = 0; i < attrComboboxes.length; i++) {
         items.push(item);
@@ -79,13 +87,35 @@ async function getChoices() {
     kititem.innerHTML = JSON.stringify(items);
     document.head.appendChild(kititem);
 
-    const itemChoices = document.createElement('kit-choices');
-    attributesContainer.appendChild(itemChoices);
+    kitChoices = document.createElement('kit-choices');
+    attributesContainer.appendChild(kitChoices);
 }
 
-addEventListener('load', () => {
-    if (attributesContainer) {
-        attributesContainer.innerHTML = '';     
+function arrayToUrlParams(array) {
+    return array.map(item => {
+        return `${item}=1`;
+    }).join('&');
+}
+
+function validateValues() {
+    console.log(kitChoices.itemsSelected);
+
+    if (kitChoices.itemsSelected.length != attrComboboxes.length) return;
+
+    btnBuy.href = `https://www.cwbnutrishop.com/carrinho/produto/adicionar?${arrayToUrlParams(kitChoices.itemsSelected)}`;
+}
+
+addEventListener('load', async () => {
+    if (attributesContainer && sku.includes('KIT')) {
+        attributesContainer.innerHTML = '';
+
+
         getChoices();
     }
+
+    btnBuy.href = 'jabascript:void(0)';
+    
+    await getChoices();
+
+    kitChoices.addEventListener('change', validateValues);
 });

@@ -3,13 +3,19 @@ class KitChoices extends HTMLElement {
         super();
     }
 
+    get itemsSelected() {
+        const checkedRadios = this.shadow.querySelectorAll('input[type="radio"]:checked');
+        const values = Array.from(checkedRadios).map(radio => radio.value);
+        return values;
+    }
+
     connectedCallback() {
         const KITDATA = document.querySelector('template#__KITDATA__');
         this.items = JSON.parse(KITDATA.innerHTML);
 
-        const shadow = this.attachShadow({ mode: 'open' });
-        shadow.appendChild(this.style());
-        shadow.appendChild(this.render());
+        this.shadow = this.attachShadow({ mode: 'open' });
+        this.shadow.appendChild(this.style());
+        this.shadow.appendChild(this.render());
     }
 
     getItemChoices(variations) {
@@ -22,21 +28,28 @@ class KitChoices extends HTMLElement {
         const variationsList = document.createElement('div');
         variationsList.classList.add("variations-container");
 
-        for (let variation of variations) {
-            if (!variation.active) continue;
+        for (let i in variations) {
+            if (!variations[i].active) continue;
 
-            const idRadioFormated = `${variation.name}-${idRadio}`;
+            const idRadioFormated = `${variations[i].name}-${idRadio}`;
             const label = document.createElement('label');
-            label.innerText = variation.name;
+            label.innerText = variations[i].name;
             label.setAttribute("for", idRadioFormated);
             const radio = document.createElement('input');
             radio.type = "radio";
             radio.id = idRadioFormated
             radio.name = `radio-variation-${idRadio}`;
+            radio.value = variations[i].id;
             radio.style.display = 'none';
+
+            radio.addEventListener('change', () => {
+                const changeEvent = new Event('change');
+                this.dispatchEvent(changeEvent);
+            });
+
             variationsList.append(radio, label);
 
-            if (variation.stock <= 0) {
+            if (variations[i].stock <= 0) {
                 label.classList.add("disabled");
                 radio.disabled = true;
             }
