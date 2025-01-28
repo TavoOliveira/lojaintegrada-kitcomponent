@@ -88,6 +88,7 @@ async function getChoices() {
     document.head.appendChild(kititem);
 
     kitChoices = document.createElement('kit-choices');
+    attributesContainer.innerHTML = '';
     attributesContainer.appendChild(kitChoices);
 }
 
@@ -109,7 +110,9 @@ function validateValues() {
 
 async function startKitComponent() {
     if (attributesContainer && sku.includes('KIT')) {
-        attributesContainer.innerHTML = '';
+        attributesContainer.innerHTML = `
+            <div class="loading-variation-kit"></div>
+        `;
 
         btnsBuy.forEach(btn => {
             btn.href = 'javascript:void(0)';
@@ -121,4 +124,4 @@ async function startKitComponent() {
     }
 }
 
-await startKitComponent();
+startKitComponent();

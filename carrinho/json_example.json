@@ -1,0 +1,188 @@
+{
+    "items": [
+        {
+            "id": 315717363,
+            "parentId": 301497436,
+            "sku": "WDRBI",
+            "name": "WHEY MAX 100% 900G - DR PEANUT",
+            "quantity": 1,
+            "active": true,
+            "isAvailable": true,
+            "categoriesId": [
+                "20338344",
+                "22995548",
+                "22995477"
+            ],
+            "brand": {
+                "id": 19673074,
+                "name": "DR PEANUT",
+                "isActive": true,
+                "path": "drpeanut"
+            },
+            "deliverableTime": 0,
+            "length": 10,
+            "width": 10,
+            "height": 30,
+            "weight": 0.9,
+            "price": {
+                "promotionalPrice": null,
+                "listPrice": 139.9,
+                "sellingPrice": 139.9,
+                "onRequest": false,
+                "hasVariation": null
+            },
+            "images": [
+                {
+                    "id": 179837987,
+                    "path": "2588/2588241/produto/301497436/whey-dr--peanut---max-titanium-bombom-italiano-iks8rsw443.png",
+                    "position": 2,
+                    "principal": false
+                },
+                {
+                    "id": 179269627,
+                    "path": "2588/2588241/produto/301497436/4f310b871ea22ecae16b7d73697fcf9b-ejoeoth404.jpg",
+                    "position": 1,
+                    "principal": false
+                },
+                {
+                    "id": 185080194,
+                    "path": "2588/2588241/produto/301497436/whey-max-100--dr-peanut-900g_-rt7hmcbvdw.png",
+                    "position": 0,
+                    "principal": true
+                },
+                {
+                    "id": 179837988,
+                    "path": "2588/2588241/produto/301497436/whey-dr--peanut---max-titanium-buenissimo-a6xlkhvqmc.png",
+                    "position": 3,
+                    "principal": false
+                },
+                {
+                    "id": 179837989,
+                    "path": "2588/2588241/produto/301497436/whey-dr--peanut---max-titanium-doce-de-leite-rzcf0n1a3l.png",
+                    "position": 4,
+                    "principal": false
+                },
+                {
+                    "id": 179837990,
+                    "path": "2588/2588241/produto/301497436/whey-dr--peanut---max-titanium-pacoca-dv4eboc2gr.png",
+                    "position": 5,
+                    "principal": false
+                }
+            ],
+            "type": "atributo",
+            "url": "/whey-max-100-dr-peanut-900g",
+            "freeFreight": false,
+            "variationTypes": [
+                {
+                    "id": 2891895,
+                    "name": "SABOR",
+                    "position": 1000,
+                    "variations": [
+                        {
+                            "id": 12987425,
+                            "name": "BOMBOM ITALIANO",
+                            "position": 0,
+                            "color": null,
+                            "secondaryColor": null
+                        }
+                    ]
+                }
+            ],
+            "isManaged": true,
+            "stock": 43,
+            "offstockDeliverableTime": -1,
+            "offstockTime": 0,
+            "availableQuantity": 43,
+            "originalStock": 43,
+            "offers": null,
+            "offersDiscount": 0,
+            "isSearchable": true,
+            "creationDate": "2025-01-28T00:24:54.4936601Z"
+        },
+        {
+            "id": 333388039,
+            "parentId": 333388028,
+            "sku": "PSICHOTICDEMONBLACK150GFP",
+            "name": "PSICHOTIC DEMON BLACK 150G - DEMONS LAB",
+            "quantity": 1,
+            "active": true,
+            "isAvailable": true,
+            "categoriesId": [
+                "22994265",
+                "23138462",
+                "20027935"
+            ],
+            "brand": {
+                "id": 21375101,
+                "name": "DEMONS LAB",
+                "isActive": true,
+                "path": "demon-labz"
+            },
+            "deliverableTime": 0,
+            "length": 0,
+            "width": 0,
+            "height": 0,
+            "weight": 0,
+            "price": {
+                "promotionalPrice": null,
+                "listPrice": 99.9,
+                "sellingPrice": 99.9,
+                "onRequest": false,
+                "hasVariation": null
+            },
+            "images": [
+                {
+                    "id": 186598140,
+                    "path": "2588/2588241/produto/333388028/psichotic-demon-black-150g-demons-lab-9wfxnwf0k6.png",
+                    "position": 0,
+                    "principal": true
+                },
+                {
+                    "id": 186598139,
+                    "path": "2588/2588241/produto/333388028/psichotic-demon-black-150g-demons-lab2-pwboamyeb9.png",
+                    "position": 1,
+                    "principal": false
+                }
+            ],
+            "type": "atributo",
+            "url": "/psichotic-demon-black-150g-demons-lab",
+            "freeFreight": false,
+            "variationTypes": [
+                {
+                    "id": 2891895,
+                    "name": "SABOR",
+                    "position": 1000,
+                    "variations": [
+                        {
+                            "id": 13125574,
+                            "name": "FRUIT PUNCH",
+                            "position": 0,
+                            "color": null,
+                            "secondaryColor": null
+                        }
+                    ]
+                }
+            ],
+            "isManaged": true,
+            "stock": 4,
+            "offstockDeliverableTime": -1,
+            "offstockTime": 0,
+            "availableQuantity": 4,
+            "originalStock": 4,
+            "offers": null,
+            "offersDiscount": 0,
+            "isSearchable": true,
+            "creationDate": "2025-01-28T00:24:54.4936855Z"
+        }
+    ],
+    "totals": {
+        "total": 239.8,
+        "shipping": 0,
+        "items": 239.8,
+        "totalDiscount": 0,
+        "cupomDiscount": 0,
+        "paymentDiscount": 0,
+        "offersDiscount": 0,
+        "pciTotal": 239.8
+    }
+}
