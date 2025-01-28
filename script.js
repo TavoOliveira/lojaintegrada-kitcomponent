@@ -103,6 +103,10 @@ function validateValues() {
 
     if (kitChoices.itemsSelected.length != attrComboboxes.length) return;
 
+    var cartKitList = JSON.parse(sessionStorage.getItem('carrinho-kits'));
+    cartKitList.push(kitChoices.itemsSelected);
+    sessionStorage.setItem('carrinho-kits', JSON.stringify(cartKitList));
+
     btnsBuy.forEach(btn => {
         btn.href = `https://www.cwbnutrishop.com/carrinho/produto/adicionar?${arrayToUrlParams(kitChoices.itemsSelected, inputQuantity.value)}`;
     });
@@ -110,6 +114,8 @@ function validateValues() {
 
 async function startKitComponent() {
     if (attributesContainer && sku.includes('KIT')) {
+        sessionStorage.setItem('carrinho-kits', '[]');
+
         attributesContainer.innerHTML = `
             <div class="loading-variation-kit"></div>
         `;
