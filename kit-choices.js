@@ -114,7 +114,7 @@ class KitChoices extends HTMLElement {
             }
             .title {
                 text-align: center;
-                color: #C30B02;
+                color: var(--kit-accent-color, #C30B02);
                 font-weight: bold;
             }
             .item-container {
@@ -148,7 +148,7 @@ class KitChoices extends HTMLElement {
                 transform: scale(1.05);
             }
             .variations-container input:checked + label {
-                background-color: #C30B02;
+                background-color: var(--kit-accent-color, #C30B02);
                 color: white;
                 font-weight: bold;
                 border: none;
@@ -158,16 +158,6 @@ class KitChoices extends HTMLElement {
                 color: rgba(255, 255, 255, 0.2);
                 cursor: not-allowed;
                 position: relative;
-            }
-            .variations-container label.disabled:before {
-                content: 'FALTA';
-                color: red;
-                font-size: 12px;
-                position: absolute;
-                font-weight: bold;
-                top: -5%;
-                left: 50%;
-                transform: rotate(-35deg) translate(-50%, -50%);
             }
         `;
 

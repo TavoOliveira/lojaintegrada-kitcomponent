@@ -3,7 +3,7 @@ const BASE_URL = "https://cwbnutrishop.oulrum.workers.dev/";
 const sku = document.querySelector("div.codigo-produto span[itemprop='sku']").textContent;
 const skuReference = document.querySelector("#descricao [ref]").textContent;
 const attributesContainer = document.querySelector(".atributos");
-const attrComboboxes = attributesContainer?.querySelectorAll(".wrapper-dropdown").length > 0 ? attributesContainer?.querySelectorAll(".wrapper-dropdown") : ['', '', ''];
+const attrComboboxes = attributesContainer?.querySelectorAll(".wrapper-dropdown").length > 0 ? attributesContainer?.querySelectorAll(".wrapper-dropdown") : attributesContainer?.querySelectorAll("ul");
 const btnsBuy = document.querySelectorAll(".botao-comprar");
 let kitChoices;
 
@@ -108,6 +108,7 @@ function validateValues() {
     sessionStorage.setItem('carrinho-kits', JSON.stringify(cartKitList));
 
     btnsBuy.forEach(btn => {
+        btn.classList.remove('desativo');
         btn.href = `https://www.cwbnutrishop.com/carrinho/produto/adicionar?${arrayToUrlParams(kitChoices.itemsSelected, inputQuantity.value)}`;
     });
 }
@@ -123,11 +124,11 @@ async function startKitComponent() {
         btnsBuy.forEach(btn => {
             btn.href = 'javascript:void(0)';
         });
-        
+
         await getChoices();
-    
+
         kitChoices.addEventListener('change', validateValues);
     }
 }
 
-startKitComponent();
+window.addEventListener('load', async () => { await startKitComponent(); });
